@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { IMapData } from "./map.model";
+import { MapDataService } from "./services/map-data.service";
 
 @Component({
   selector: "app-root",
@@ -7,6 +9,15 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AppComponent implements OnInit {
   title = "mapbox";
-
-  ngOnInit(): void {}
+  MapData: IMapData;
+  constructor(private mapService: MapDataService) {}
+  ngOnInit(): void {
+    this.mapService.getMapData().subscribe(
+      (data: IMapData) => {
+        this.MapData = data;
+      },
+      err => console.log(err),
+      () => console.log(this.MapData)
+    );
+  }
 }

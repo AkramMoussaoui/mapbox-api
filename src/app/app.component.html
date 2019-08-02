@@ -1,3 +1,5 @@
 <mgl-map [style]="'mapbox://styles/mapbox/dark-v10'" [zoom]="[15]" [center]="[2.954818,36.7665832]">
-  <mgl-marker #myMarker [lngLat]="[2.954818,36.7665832]"> </mgl-marker>
+  <div *ngFor="let feature of MapData?.features">
+    <mgl-marker [lngLat]="feature.geometry.coordinates"> </mgl-marker>
+  </div>
 </mgl-map>
