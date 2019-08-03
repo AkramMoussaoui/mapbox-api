@@ -1,5 +1,9 @@
 <mgl-map [style]="'mapbox://styles/mapbox/dark-v10'" [zoom]="[15]" [center]="[2.954818,36.7665832]">
   <div *ngFor="let feature of MapData?.features">
-    <mgl-marker [lngLat]="feature.geometry.coordinates"> </mgl-marker>
+    <mgl-marker #marker [lngLat]="feature.geometry.coordinates"> </mgl-marker>
+    <mgl-popup [marker]="marker">
+      <h4>{{ feature.properties.name }}</h4>
+    </mgl-popup>
+
   </div>
 </mgl-map>
