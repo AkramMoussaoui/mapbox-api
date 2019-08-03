@@ -1,8 +1,9 @@
 <mgl-map [style]="'mapbox://styles/mapbox/dark-v10'" [zoom]="[15]" [center]="[2.954818,36.7665832]">
-  <div *ngFor="let feature of MapData?.features">
-    <mgl-marker #marker [lngLat]="feature.geometry.coordinates"> </mgl-marker>
+  <div *ngFor="let place of places">
+    <mgl-marker #marker [lngLat]="[place.venue.location.lng, place.venue.location.lat]"> </mgl-marker>
     <mgl-popup [marker]="marker">
-      <h4>{{ feature.properties.name }}</h4>
+      <h4 style="text-align: center">{{ place.venue.name }}</h4>
+      <h5 style="text-align: center">{{ place.venue.categories[0].name}}</h5>
     </mgl-popup>
 
   </div>
