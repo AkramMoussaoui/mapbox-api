@@ -2,3 +2,24 @@ mgl-map {
   height: 100%;
   width: 100%;
 }
+
+button {
+  height: 40px;
+  width: 60px;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+  border: none;
+  font-size: 100%;
+  background-color: rgba(39, 39, 39, 0.945);
+}
+
+fa-icon {
+  color: white;
+}
+
+aside {
+  position: fixed;
+  top: 40px;
+  z-index: 2;
+}

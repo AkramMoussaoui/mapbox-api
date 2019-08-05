@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { IMapData, Item } from "./map.model";
 import { MapDataService } from "./services/map-data.service";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-root",
@@ -8,7 +9,9 @@ import { MapDataService } from "./services/map-data.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  title = "mapbox";
+  opened: boolean = false;
+  faBars = faBars;
+  title: string = "mapbox";
   MapData: IMapData;
   places: Item[];
   constructor(private mapService: MapDataService) {}
