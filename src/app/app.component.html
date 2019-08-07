@@ -2,9 +2,15 @@
   <fa-icon [icon]="faBars" size="lg"></fa-icon>
 </button>
 <mgl-map [style]="'mapbox://styles/mapbox/dark-v10'" [zoom]="[13]" [center]="[2.954818,36.7665832]">
-  <div *ngFor="let place of places">
-    <mgl-marker #marker [lngLat]="[place.venue.location.lng, place.venue.location.lat]"> </mgl-marker>
-    <mgl-popup [marker]="marker">
+  <div *ngFor="let place of filtredPlaces">
+    <mgl-marker #marker [lngLat]="[place.venue.location.lng, place.venue.location.lat]">
+    </mgl-marker>
+    <mgl-popup [marker]="marker" [closeButton]="false">
+      <h4 class="text-center">{{ place.venue.name }}</h4>
+      <h5 class="text-center">{{ place.venue.categories[0].name}}</h5>
+    </mgl-popup>
+    <mgl-popup *ngIf="popShow[place.venue.name]" [lngLat]="[place.venue.location.lng, place.venue.location.lat]"
+      [closeButton]="false" (close)="close(place.venue.name)">
       <h4 class="text-center">{{ place.venue.name }}</h4>
       <h5 class="text-center">{{ place.venue.categories[0].name}}</h5>
     </mgl-popup>
@@ -12,8 +18,9 @@
 </mgl-map>
 <aside [hidden]="opened">
   <h4 class="text-center">My Neighborhood</h4>
-
-  <div id="asideDiv" class="mt-2 ml-2 border-bottom rounded-bottom border-white p-2" *ngFor="let place of places">
+  <input class="border rounded" type="text" [(ngModel)]="listFilter" />
+  <div (click)="open(place.venue.name)" id="asideDiv" class="mt-2 ml-2 border-bottom rounded-bottom border-white p-2"
+    *ngFor="let place of filtredPlaces">
     <span>{{ place.venue.name }}</span>
   </div>
 </aside>

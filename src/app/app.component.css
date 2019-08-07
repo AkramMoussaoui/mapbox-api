@@ -39,6 +39,11 @@ aside {
   border-color: rgb(233, 79, 68) !important;
 }
 
+input {
+  margin: auto;
+  display: block;
+}
+
 @media only screen and (max-width: 600px) {
   aside {
     font-size: 15px;
