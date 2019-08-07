@@ -20,6 +20,36 @@ fa-icon {
 
 aside {
   position: fixed;
-  top: 40px;
+  top: 0px;
+  height: 70%;
+  width: 20%;
+  background-color: rgba(39, 39, 39, 0.945);
   z-index: 2;
+  color: white;
+  margin-top: 5rem;
+  overflow: auto;
+}
+
+#asideDiv {
+  width: 90%;
+}
+
+#asideDiv:hover {
+  border-style: solid;
+  border-color: rgb(233, 79, 68) !important;
+}
+
+@media only screen and (max-width: 600px) {
+  aside {
+    font-size: 15px;
+    width: 130px;
+  }
+
+  h4 {
+    font-size: 17px;
+  }
+
+  h5 {
+    font-size: 15px;
+  }
 }

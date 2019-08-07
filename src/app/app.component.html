@@ -5,13 +5,15 @@
   <div *ngFor="let place of places">
     <mgl-marker #marker [lngLat]="[place.venue.location.lng, place.venue.location.lat]"> </mgl-marker>
     <mgl-popup [marker]="marker">
-      <h4 style="text-align: center">{{ place.venue.name }}</h4>
-      <h5 style="text-align: center">{{ place.venue.categories[0].name}}</h5>
+      <h4 class="text-center">{{ place.venue.name }}</h4>
+      <h5 class="text-center">{{ place.venue.categories[0].name}}</h5>
     </mgl-popup>
   </div>
 </mgl-map>
-<aside>
-  <ul>
-    <li *ngFor="let place of places">{{ place.venue.name }}</li>
-  </ul>
+<aside [hidden]="opened">
+  <h4 class="text-center">My Neighborhood</h4>
+
+  <div id="asideDiv" class="mt-2 ml-2 border-bottom rounded-bottom border-white p-2" *ngFor="let place of places">
+    <span>{{ place.venue.name }}</span>
+  </div>
 </aside>
