@@ -1,6 +1,8 @@
+<!-- class="btn btn-dark p-3 button-collapse" -->
 <button (click)="opened=!opened">
   <fa-icon [icon]="faBars" size="lg"></fa-icon>
 </button>
+
 <mgl-map [style]="'mapbox://styles/mapbox/dark-v10'" [zoom]="[13]" [center]="[2.954818,36.7665832]">
   <div *ngFor="let place of filtredPlaces">
     <mgl-marker #marker [lngLat]="[place.venue.location.lng, place.venue.location.lat]">
